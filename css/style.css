@@ -1,0 +1,83 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,900);
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 100%;
+    font-family: "Source Code Pro", Arial, Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    padding: 50px;
+    background-color: #eaeaea;
+}
+
+h1, h2, h3 {
+    font-weight: 900;
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    margin: 30px 0;
+    text-align: center;
+    color: #505961;
+}
+
+.character-list-container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.character {
+    background-color: #fff;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.character * {
+    color: #505961;
+}
+
+.character img {
+    float: left;
+    margin-right: 20px;
+    width: 80px;
+    height: 130px;
+}
+
+.character-bio-container {
+    clear: both;
+    margin: 20px 20px 60px 20px;
+    border-top: 1px solid #505961;
+    padding-top: 20px;
+}
+
+.button {
+    border: none;
+    background: #505961;
+    text-align: center;
+    padding: 5px 20px;
+    border-radius: 0;
+    position: unset;
+    bottom: 20px;
+    right: 20px;
+    color: #c9ffed;
+    font-size: 16px;
+    font-family: "Source Code Pro", Arial, Helvetica, sans-serif;
+    transition: .25s all ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: deeppink;
+    color: #fff;
+    
+}
+
+
+
+

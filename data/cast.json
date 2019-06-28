@@ -1,0 +1,33 @@
+{
+    "characters" : [
+        {
+            "name": "Jon Snow",
+            "shortCode": "jon-snow",
+            "actor" : "Kit Harrington",
+            "house": "Stark",
+            "location": "The Wall"
+        },
+        {
+            "name": "Jon Snow",
+            "shortCode": "jon-snow",
+            "actor" : "Kit Harrington",
+            "house": "Stark",
+            "location": ""
+        },
+        {
+            "name": "Jon Snow",
+            "shortCode": "jon-snow",
+            "actor" : "Kit Harrington",
+            "house": "Stark",
+            "location": false
+        },
+        {
+            "name": "Jon Snow",
+            "shortCode": "jon-snow",
+            "actor" : "Kit Harrington",
+            "house": "Stark",
+            "location": "The Wall"
+        }
+    ]
+}
+

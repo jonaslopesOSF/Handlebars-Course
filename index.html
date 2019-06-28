@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,
+            minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Handlebars Course</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <h1>Game of Thrones</h1>
+        <ul class="character-list-container">
+        </ul>
+
+        <script id="character-template" type="text/x-handlebars-template">
+            {{#each characters}}
+            <li class="character">
+                <img src="images/{{shortCode}}.jpg"/>
+                <div>
+                    <h2>{{name}}</h2>
+                    {{formatName name house.seat}}
+                    <p>{{formatPhoneNumber house.phone}}</p>
+                    <p>Actor: {{actor}}</p>
+
+                    {{#with house}}
+                    {{#if name}}<p>House: {{#makeBold}}{{name}}{{/makeBold}}</p>{{/if}}
+                    {{#if seat}}<p>Seat: {{seat}}</p>{{/if}}
+                    {{#if words}}<p>Words: {{words}}</p>{{/if}}
+                    {{/with}}
+
+                    {{#if location}}<p>Whereabouts: {{#toUpper}}{{location}}{{/toUpper}}</p>{{/if}}
+                    {{#unless location}}<p>Whereabouts are unknown...</p>{{/unless}}
+                </div>
+                <a href="cast-details.html?id={{id}}" class="button view-details">View details &#8674;</a>
+            </li>
+            {{/each}}
+        </script>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/handlebars-v4.1.2.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
