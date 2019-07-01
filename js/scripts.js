@@ -1,3 +1,17 @@
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyAjv908FETyoq3y6ctwV1LGHsWv1wVQmB0",
+    authDomain: "handlebars-course-c346e.firebaseapp.com",
+    databaseURL: "https://handlebars-course-c346e.firebaseio.com",
+    projectId: "handlebars-course-c346e",
+    storageBucket: "",
+    messagingSenderId: "848181963773",
+    appId: "1:848181963773:web:c39868a076f30874"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -11,7 +25,6 @@ function getParameterByName(name, url) {
 var cast = {
     "characters" : [
         {
-            "id": 0,
             "name": "Jon Snow",
             "shortCode": "jon-snow",
             "actor" : "Kit Harrington",
@@ -25,7 +38,6 @@ var cast = {
             "bio": "Jon Snow, nascido Aegon Targaryen, é o filho de Rhaegar Targaryen e Lyanna Stark, fez sua primeira aparição em 'O Inverno está Chegando'. Quando Eddard Stark voltou para casa após a Rebelião de Robert, ele apresentou Jon como seu filho bastardo, nunca dizendo a ninguém, nem mesmo a Jon, quem era sua mãe. Eddard tomou a incomum decisão de criar Jon em seu castelo em Winterfell junto de seus filhos legítimos - causando tensão com sua esposa Catelyn Tully."
         },
         {
-            "id": 1,
             "name": "Tyrion Lannister",
             "shortCode": "tyrion-lannister",
             "actor" : "Peter Dinklage",
@@ -36,10 +48,9 @@ var cast = {
                 "phone": 5551234564 
             },
             "location": "Mereen",
-            "bio": "Jon Snow, nascido Aegon Targaryen, é o filho de Rhaegar Targaryen e Lyanna Stark, fez sua primeira aparição em 'O Inverno está Chegando'. Quando Eddard Stark voltou para casa após a Rebelião de Robert, ele apresentou Jon como seu filho bastardo, nunca dizendo a ninguém, nem mesmo a Jon, quem era sua mãe. Eddard tomou a incomum decisão de criar Jon em seu castelo em Winterfell junto de seus filhos legítimos - causando tensão com sua esposa Catelyn Tully."
+            "bio": ", nascido Aegon Targaryen, é o filho de Rhaegar Targaryen e Lyanna Stark, fez sua primeira aparição em 'O Inverno está Chegando'. Quando Eddard Stark voltou para casa após a Rebelião de Robert, ele apresentou Jon como seu filho bastardo, nunca dizendo a ninguém, nem mesmo a Jon, quem era sua mãe. Eddard tomou a incomum decisão de criar Jon em seu castelo em Winterfell junto de seus filhos legítimos - causando tensão com sua esposa Catelyn Tully."
         },
         {
-            "id": 2,
             "name": "Victor Clegane",
             "shortCode": "jon-snow",
             "actor" : "Kit Harrington",
@@ -52,7 +63,6 @@ var cast = {
             "bio": "Jon Snow, nascido Aegon Targaryen, é o filho de Rhaegar Targaryen e Lyanna Stark, fez sua primeira aparição em 'O Inverno está Chegando'. Quando Eddard Stark voltou para casa após a Rebelião de Robert, ele apresentou Jon como seu filho bastardo, nunca dizendo a ninguém, nem mesmo a Jon, quem era sua mãe. Eddard tomou a incomum decisão de criar Jon em seu castelo em Winterfell junto de seus filhos legítimos - causando tensão com sua esposa Catelyn Tully."
         },
         {
-            "id": 3,
             "name": "Jon Snow",
             "shortCode": "jon-snow",
             "actor" : "Kit Harrington",
@@ -77,7 +87,7 @@ Handlebars.registerHelper("formatName", function(name, seat){
 Handlebars.registerHelper("formatPhoneNumber", function(phoneNumber){
     if(phoneNumber){
         var phone = phoneNumber.toString();
-        return "(" + phone.substr(0, 3) + ")" + phone.substr(3, 3) + "-" + phone.substr(6,4);
+        return "(" + phone.substr(0, 3) + ") " + phone.substr(3, 3) + "-" + phone.substr(6,4);
     }
 });
 
@@ -88,6 +98,9 @@ Handlebars.registerHelper("toUpper", function(options){
     return options.fn(this).toUpperCase();
 });
 
+// Registering partial template
+Handlebars.registerPartial("characterDetailsPartial", $("#character-details-partial").html());
+
 $(document).ready(function(){
     var characterTemplate = $("#character-template").html();
 
@@ -97,6 +110,7 @@ $(document).ready(function(){
     /*$.ajax("./data/cast.json").done(function(cast) {
         console.log(cast);
     });*/
+    
     var characterId = getParameterByName("id");
     console.log("characterId" , characterId);
 
@@ -104,10 +118,20 @@ $(document).ready(function(){
         $characterList.html(compiledCharacterTemplate(cast.characters[0]));
     }else{
         $characterList.html(compiledCharacterTemplate(cast));
-    }
-
-    $(".character-list-container").on("click", ".view-details", function(e){
-        //e.preventDefault();
-        console.log("Button clicked");
+    };
+    
+    var dbRef = firebase.database().ref();
+    dbRef.on('value', function(snap){
+        if($("body").hasClass("page-cast-details")){
+            $characterList.html(compiledCharacterTemplate(cast.characters[0]));
+        }else{
+            $characterList.html(compiledCharacterTemplate(snap.val()));
+            console.log(snap.val());
+        };
     });
 });
+
+    /*$(".character-list-container").on("click", ".view-details", function(e){
+        //e.preventDefault();
+        console.log("Button clicked");
+    });*/

@@ -19,27 +19,36 @@
             {{#each characters}}
             <li class="character">
                 <img src="images/{{shortCode}}.jpg"/>
-                <div>
-                    <h2>{{name}}</h2>
-                    {{formatName name house.seat}}
-                    <p>{{formatPhoneNumber house.phone}}</p>
-                    <p>Actor: {{actor}}</p>
-
-                    {{#with house}}
-                    {{#if name}}<p>House: {{#makeBold}}{{name}}{{/makeBold}}</p>{{/if}}
-                    {{#if seat}}<p>Seat: {{seat}}</p>{{/if}}
-                    {{#if words}}<p>Words: {{words}}</p>{{/if}}
-                    {{/with}}
-
-                    {{#if location}}<p>Whereabouts: {{#toUpper}}{{location}}{{/toUpper}}</p>{{/if}}
-                    {{#unless location}}<p>Whereabouts are unknown...</p>{{/unless}}
-                </div>
-                <a href="cast-details.html?id={{id}}" class="button view-details">View details &#8674;</a>
+               {{> characterDetailsPartial}}
+                <a href="cast-details.html?id={{@index}}" class="button view-details">View details &#8674;</a>
             </li>
-            {{/each}}
+            {{/each}} 
         </script>
+        
+        <script id="character-details-partial" type="text/x-handlebars-template">
+            <div>
+                <h2>{{name}}</h2>
+                {{formatName name house.seat}}
+                <p>{{formatPhoneNumber house.phone}}</p>
+                <p>Actor: {{actor}}</p>
+
+                {{#with house}}
+                {{#if name}}<p>House: {{#makeBold}}{{name}}{{/makeBold}}</p>{{/if}}
+                {{#if seat}}<p>Seat: {{seat}}</p>{{/if}}
+                {{#if words}}<p>Words: {{words}}</p>{{/if}}
+                {{/with}}
+
+                {{#if location}}<p>Whereabouts: {{#toUpper}}{{location}}{{/toUpper}}</p>{{/if}}
+                {{#unless location}}<p>Whereabouts are unknown...</p>{{/unless}}
+            </div>  
+        </script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+        
+
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/handlebars-v4.1.2.js"></script>
         <script src="js/scripts.js"></script>
+
     </body>
 </html>

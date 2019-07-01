@@ -4,29 +4,52 @@
             "name": "Jon Snow",
             "shortCode": "jon-snow",
             "actor" : "Kit Harrington",
-            "house": "Stark",
-            "location": "The Wall"
+            "house": {
+                "name": "Stark",
+                "seat": "Winterfell",
+                "words": "Winter is coming",
+                "phone": 5551234564
+            },
+            "location": "The Wall",
+            "bio": "Jon Snow, nascido Aegon Targaryen, é o filho de Rhaegar Targaryen e Lyanna Stark, fez sua primeira aparição em 'O Inverno está Chegando'. Quando Eddard Stark voltou para casa após a Rebelião de Robert, ele apresentou Jon como seu filho bastardo, nunca dizendo a ninguém, nem mesmo a Jon, quem era sua mãe. Eddard tomou a incomum decisão de criar Jon em seu castelo em Winterfell junto de seus filhos legítimos - causando tensão com sua esposa Catelyn Tully."
+        },
+        {
+            "name": "Tyrion Lannister",
+            "shortCode": "tyrion-lannister",
+            "actor" : "Peter Dinklage",
+            "house": {
+                "name": "Lannister",
+                "seat": "Casterly Rock",
+                "words": "Hear me roar",
+                "phone": 5551234564 
+            },
+            "location": "Mereen",
+            "bio": ", nascido Aegon Targaryen, é o filho de Rhaegar Targaryen e Lyanna Stark, fez sua primeira aparição em 'O Inverno está Chegando'. Quando Eddard Stark voltou para casa após a Rebelião de Robert, ele apresentou Jon como seu filho bastardo, nunca dizendo a ninguém, nem mesmo a Jon, quem era sua mãe. Eddard tomou a incomum decisão de criar Jon em seu castelo em Winterfell junto de seus filhos legítimos - causando tensão com sua esposa Catelyn Tully."
+        },
+        {
+            "name": "Victor Clegane",
+            "shortCode": "jon-snow",
+            "actor" : "Kit Harrington",
+            "house": {
+                "name": "Clegane",
+                "seat": "",
+                "words": ""
+            },
+            "location": false,
+            "bio": "Jon Snow, nascido Aegon Targaryen, é o filho de Rhaegar Targaryen e Lyanna Stark, fez sua primeira aparição em 'O Inverno está Chegando'. Quando Eddard Stark voltou para casa após a Rebelião de Robert, ele apresentou Jon como seu filho bastardo, nunca dizendo a ninguém, nem mesmo a Jon, quem era sua mãe. Eddard tomou a incomum decisão de criar Jon em seu castelo em Winterfell junto de seus filhos legítimos - causando tensão com sua esposa Catelyn Tully."
         },
         {
             "name": "Jon Snow",
             "shortCode": "jon-snow",
             "actor" : "Kit Harrington",
-            "house": "Stark",
-            "location": ""
-        },
-        {
-            "name": "Jon Snow",
-            "shortCode": "jon-snow",
-            "actor" : "Kit Harrington",
-            "house": "Stark",
-            "location": false
-        },
-        {
-            "name": "Jon Snow",
-            "shortCode": "jon-snow",
-            "actor" : "Kit Harrington",
-            "house": "Stark",
-            "location": "The Wall"
+            "house": {
+                "name": "Stark",
+                "seat": "Winterfell",
+                "words": "Winter is coming" ,
+                "phone": 5551234564
+            },
+            "location": "The Wall",
+            "bio": "Jon Snow, nascido Aegon Targaryen, é o filho de Rhaegar Targaryen e Lyanna Stark, fez sua primeira aparição em 'O Inverno está Chegando'. Quando Eddard Stark voltou para casa após a Rebelião de Robert, ele apresentou Jon como seu filho bastardo, nunca dizendo a ninguém, nem mesmo a Jon, quem era sua mãe. Eddard tomou a incomum decisão de criar Jon em seu castelo em Winterfell junto de seus filhos legítimos - causando tensão com sua esposa Catelyn Tully."
         }
     ]
 }

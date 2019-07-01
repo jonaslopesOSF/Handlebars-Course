@@ -17,21 +17,7 @@
         <script id="character-template" type="text/x-handlebars-template">
             <div class="character">
                 <img src="images/{{shortCode}}.jpg"/>
-                <div>
-                    <h2>{{name}}</h2>
-                    {{formatName name house.seat}}
-                    <p>{{formatPhoneNumber house.phone}}</p>
-                    <p>Actor: {{actor}}</p>
-
-                    {{#with house}}
-                    {{#if name}}<p>House: {{#makeBold}}{{name}}{{/makeBold}}</p>{{/if}}
-                    {{#if seat}}<p>Seat: {{seat}}</p>{{/if}}
-                    {{#if words}}<p>Words: {{words}}</p>{{/if}}
-                    {{/with}}
-
-                    {{#if location}}<p>Whereabouts: {{#toUpper}}{{location}}{{/toUpper}}</p>{{/if}}
-                    {{#unless location}}<p>Whereabouts are unknown...</p>{{/unless}}
-                </div>
+                {{> characterDetailsPartial}}
                 <a href="index.html" class="button view-details">Back</a>
             </div>
 
@@ -39,6 +25,25 @@
                 <p><strong>Bio: </strong>{{bio}}</p>
             </div>
         </script>
+        <script id="character-details-partial" type="text/x-handlebars-template">
+            <div>
+                <h2>{{name}}</h2>
+                {{formatName name house.seat}}
+                <p>{{formatPhoneNumber house.phone}}</p>
+                <p>Actor: {{actor}}</p>
+
+                {{#with house}}
+                {{#if name}}<p>House: {{#makeBold}}{{name}}{{/makeBold}}</p>{{/if}}
+                {{#if seat}}<p>Seat: {{seat}}</p>{{/if}}
+                {{#if words}}<p>Words: {{words}}</p>{{/if}}
+                {{/with}}
+
+                {{#if location}}<p>Whereabouts: {{#toUpper}}{{location}}{{/toUpper}}</p>{{/if}}
+                {{#unless location}}<p>Whereabouts are unknown...</p>{{/unless}}
+            </div>  
+        </script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/handlebars-v4.1.2.js"></script>
         <script src="js/scripts.js"></script>
