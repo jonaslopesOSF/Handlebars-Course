@@ -1,12 +1,12 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    //apiKey: "AIzaSyAjv908FETyoq3y6ctwV1LGHsWv1wVQmB0",
+    apiKey: "AIzaSyAjv908FETyoq3y6ctwV1LGHsWv1wVQmB0",
     authDomain: "handlebars-course-c346e.firebaseapp.com",
     databaseURL: "https://handlebars-course-c346e.firebaseio.com",
     projectId: "handlebars-course-c346e",
     storageBucket: "",
-    //messagingSenderId: "848181963773",
-    //appId: "1:848181963773:web:c39868a076f30874"
+    messagingSenderId: "848181963773",
+    appId: "1:848181963773:web:c39868a076f30874"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -110,7 +110,7 @@ $(document).ready(function(){
     /*$.ajax("./data/cast.json").done(function(cast) {
         console.log(cast);
     });*/
-
+    
     var characterId = getParameterByName("id");
     console.log("characterId" , characterId);
 
